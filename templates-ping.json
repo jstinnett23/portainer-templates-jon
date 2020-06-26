@@ -1,0 +1,30 @@
+[
+  { 
+    "type": 1,
+    "title": "PingFederate - Specify your own Server Profile",
+    "description": "Deploy PingFederate, but use your own Server Profile (e.g. hosted on GitHub)",
+    "logo": "https://raw.githubusercontent.com/joelrader-ping/portainer-templates/master/ping-logo-grey.png",
+    "categories": ["PingFederate", "Ping Identity"],
+    "note": "<b>Admin Console: </b>https://hostname:9999/pingfederate/app<br/><b>Username: </b>admin<br/><b>Password: </b>2FederateMore",
+    "platform": "linux",
+    "image": "pingidentity/pingfederate:edge",
+    "ports": [
+      "9999:9999/tcp",
+      "9031:9031/tcp"
+    ],
+    "env": [
+      {
+        "name": "SERVER_PROFILE_URL",
+        "label": "Specify your own PingFederate server profile",
+        "description": "A previously saved PingFederate configuration can be saved to GitHub and referenced here",
+        "default": "https://github.com/pingidentity/pingidentity-server-profiles.git"
+      },
+      {
+        "name": "SERVER_PROFILE_PATH",
+        "label": "Specify your own PingFederate server profile path",
+        "description": "This is the location in the repo where your profile is stored",
+        "default": "getting-started/pingfederate"
+      }
+    ]
+  },
+]
