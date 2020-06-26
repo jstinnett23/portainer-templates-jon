@@ -1,4 +1,33 @@
 [
+<<<<<<< HEAD
+=======
+  {
+    "type": 1,
+    "title": "PingFederate",
+    "description": "Deploy the Ping Identity product that started it all! PingFederate is a Global Authentication Authority.",
+    "logo": "https://raw.githubusercontent.com/joelrader-ping/portainer-templates/master/ping-logo.svg",
+    "categories": ["PingFederate", "Ping Identity"],
+    "note": "<b>Admin Console: </b>https://hostname:9999/pingfederate/app<br/><b>Username: </b>admin<br/><b>Password: </b>2FederateMore",
+    "platform": "linux",
+    "image": "pingidentity/pingfederate:edge",
+    "ports": [
+      "9999:9999/tcp",
+      "9031:9031/tcp"
+    ],
+    "env": [
+      {
+        "name": "SERVER_PROFILE_URL",
+        "default": "https://github.com/pingidentity/pingidentity-server-profiles.git",
+        "preset": true
+      },
+      {
+        "name": "SERVER_PROFILE_PATH",
+        "default": "getting-started/pingfederate",
+        "preset": true
+      }
+    ]
+  },
+>>>>>>> 1a6a7aa155b30d4df13b1cd67202b3901d037576
   { 
     "type": 1,
     "title": "PingFederate - Specify your own Server Profile",
@@ -27,4 +56,274 @@
       }
     ]
   },
+<<<<<<< HEAD
+=======
+  {
+    "type": 3,
+    "title": "Workforce 360",
+    "description": "Ping’s Workforce360 solution provides central authentication services to connect employees in any situation.",
+    "logo": "https://raw.githubusercontent.com/joelrader-ping/portainer-templates/master/360-logo.png",
+    "categories": ["360", "Ping Identity"],
+    "note": "See our documentation for this demo on <a href=\"https://github.com/pingidentity/Workforce360\">GitHub</a><br/>",
+    "platform": "linux",
+    "repository": {
+      "url": "https://github.com/joelrader-ping/portainer-templates",
+      "stackfile": "stacks/workforce-360.yaml"
+    },
+    "env": [
+      {
+        "name": "MAX_HEAP_SIZE",
+        "label": "Java Max Heap Size (1024m or larger)",
+        "default": "1024m"
+      },
+      {
+        "name": "PING_IDENTITY_DEVOPS_USER",
+        "label": "Ping DevOps Username",
+        "default": "username@domain.org"
+      },
+      {
+        "name": "PING_IDENTITY_DEVOPS_KEY",
+        "label": "Ping DevOps Key",
+        "default": "abcdefgh-abcd-1234-5678-abcdefgh"
+      },
+      {
+        "name": "PING_IDENTITY_ACCEPT_EULA",
+        "label": "Accept Ping Identity EULA?",
+        "description": "Accept the EULA in order to successfully deploy this template",
+        "select": [
+          {
+            "text": "No, I do not accept",
+            "value": "NO",
+            "default": true
+          },
+          {
+            "text": "Yes, I accept",
+            "value": "YES"
+          }
+        ]
+      },
+      {
+        "name": "PF_LOG_LEVEL",
+        "label": "PingFederate Log Level",
+        "default": "DEBUG"
+      },
+      {
+        "name": "PF_USER_PWD",
+        "label": "PingFederate User Password",
+        "default": "2FederateM0re"
+      },
+      {
+        "name": "AD_DC_HOST",
+        "label": "Active Directory Hostname",
+        "default": "int-ad.solution-wf.ping-eng.com"
+      },
+      {
+        "name": "AD_BASE_DN",
+        "label": "Active Directory BaseDN",
+        "default": "dc=workforce360,dc=com"
+      },
+      {
+        "name": "USER_BASE_DN",
+        "label": "PingDirectory - User BaseDN",
+        "default": "dc=workforce360.com"
+      },
+      {
+        "name": "PING_CENTRAL_BLIND_TRUST",
+        "label": "PingCentral - Blind Trust",
+        "default": "true"
+      },
+      {
+        "name": "PING_CENTRAL_VERIFY_HOSTNAME",
+        "label": "PingCentral - Verify Hostname",
+        "default": "false"
+      },
+      {
+        "name": "MYSQL_USER",
+        "label": "MySQL User",
+        "default": "root"
+      },
+      {
+        "name": "MYSQL_PASSWORD",
+        "label": "MySQL Password",
+        "default": "2Federate"
+      },
+      {
+        "name": "PING_CENTRAL_OIDC_ENABLED",
+        "label": "PingCentral - Enable OIDC",
+        "default": "true"
+      },
+      {
+        "name": "PING_CENTRAL_CLIENT_ID",
+        "label": "PingCentral - ClientID",
+        "default": "PingCentral"
+      },
+      {
+        "name": "PING_CENTRAL_CLIENT_SECRET",
+        "label": "PingCentral - ClientSecret",
+        "default": "2FederateM0re"
+      },
+      {
+        "name": "PF_ISSUER",
+        "label": "PingCentral - PingFederate Issuer",
+        "default": "https://docker.workforce360.com:9031"
+      }
+    ]
+  },
+  {
+    "type": 1,
+    "title": "PingAccess",
+    "description": "Web Access Management using PingAccess. Provide course-grained access to web resources.",
+    "categories": ["PingAccess", "Ping Identity"],
+    "note": "<b>Admin Console: </b>https://hostname:9001/<br/><b>Username: </b>administrator<br/><b>Password: </b>2Access",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/joelrader-ping/portainer-templates/master/ping-logo.svg",
+    "image": "pingidentity/pingaccess:edge",
+    "ports": [
+      "9001:9000/tcp",
+      "3000:3000/tcp"
+    ],
+    "env": [
+      {
+        "name": "SERVER_PROFILE_URL",
+        "default": "https://github.com/pingidentity/pingidentity-server-profiles.git",
+        "preset": true
+      },
+      {
+        "name": "SERVER_PROFILE_PATH",
+        "default": "getting-started/pingaccess",
+        "preset": true
+      }
+    ]
+  },
+  {
+    "type": 3,
+    "title": "PingDirectory - Getting Started Demo",
+    "description": "Simple demo environment for PingDirectory with PingDataConsole",
+    "logo": "https://raw.githubusercontent.com/joelrader-ping/portainer-templates/master/ping-logo.svg",
+    "categories": ["PingDirectory", "Ping Identity"],
+    "note": "See our documentation for this demo on <a href=\"https://github.com/pingidentity/pingidentity-devops-getting-started/blob/master/docs/deploySimpleStack.md\"> GitHub</a><br/> <b>Admin Console: </b><br/> https://hostname:8443/<br/> administrator<br/> 2FederateM0re",
+    "platform": "linux",
+    "repository": {
+      "url": "https://github.com/joelrader-ping/portainer-templates",
+      "stackfile": "stacks/pingdirectory-getting-started.yaml"
+    },
+    "env": [
+      {
+        "name": "MAX_HEAP_SIZE",
+        "label": "Java Max Heap Size (1024m or larger)",
+        "default": "1024m"
+      },
+      {
+        "name": "PING_IDENTITY_DEVOPS_USER",
+        "label": "Ping DevOps Username",
+        "default": "username@domain.org"
+      },
+      {
+        "name": "PING_IDENTITY_DEVOPS_KEY",
+        "label": "Ping DevOps Key",
+        "default": "abcdefgh-abcd-1234-5678-abcdefgh"
+      },
+      {
+        "name": "PING_IDENTITY_ACCEPT_EULA",
+        "label": "Accept Ping Identity EULA?",
+        "description": "Accept the EULA in order to successfully deploy this template",
+        "select": [
+          {
+            "text": "No, I do not accept",
+            "value": "NO",
+            "default": true
+          },
+          {
+            "text": "Yes, I accept",
+            "value": "YES"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": 1,
+    "title": "PingFederate - Novacoast",
+    "description": "PingFederate instance - sample for Novacoast",
+    "categories": ["Channel Partner Demos", "Novacoast"],
+    "note": "<b>Admin Console Login</b><br>https://hostname:9998/pingfederate/app<br><b>Username: </b>admin<br><b>Password: </b>2FederateMore",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/joelrader-ping/portainer-templates/master/novacoast-logo.svg",
+    "image": "pingidentity/pingfederate:edge",
+    "ports": [
+      "9998:9999/tcp",
+      "9030:9031/tcp"
+    ],
+    "env": [
+      {
+        "name": "SERVER_PROFILE_URL",
+        "label": "Specify your own PingFederate server profile",
+        "description": "A previously saved PingFederate configuration can be saved to GitHub and referenced here",
+        "default": "https://github.com/pingidentity/pingidentity-server-profiles.git"
+      },
+      {
+        "name": "SERVER_PROFILE_PATH",
+        "label": "Specify your own PingFederate server profile path",
+        "description": "This is the location in the repo where your profile is stored",
+        "default": "getting-started/pingfederate"
+      }
+    ]
+  },
+  {
+    "type": 1,
+    "title": "PingIdentity/OneIdentity DevOps Solution Lab",
+    "description": "Demonstration of Ping Identity and One Identity environment with Workflow Capabilities + SSO",
+    "categories": ["Channel Partner Demos", "One Identity"],
+    "note": "<b>Admin Console Login</b><br>https://hostname:9997/pingfederate/app<br><b>Username: </b>admin<br><b>Password: </b>2FederateMore",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/joelrader-ping/portainer-templates/master/oi-logo.png",
+    "image": "pingidentity/pingfederate:edge",
+    "ports": [
+      "9997:9999/tcp",
+      "9029:9031/tcp"
+    ],
+    "env": [
+      {
+        "name": "SERVER_PROFILE_URL",
+        "label": "Specify your own PingFederate server profile",
+        "description": "A previously saved PingFederate configuration can be saved to GitHub and referenced here",
+        "default": "https://github.com/pingidentity/pingidentity-server-profiles.git"
+      },
+      {
+        "name": "SERVER_PROFILE_PATH",
+        "label": "Specify your own PingFederate server profile path",
+        "description": "This is the location in the repo where your profile is stored",
+        "default": "getting-started/pingfederate"
+      }
+    ]
+  },
+  {
+    "type": 3,
+    "title": "[TESTING] PingFederate HTTP BIN Sample App",
+    "description": "Login to PingFederate on port 9999",
+    "logo": "https://raw.githubusercontent.com/joelrader-ping/portainer-templates/master/ping-logo.svg",
+    "categories": ["PingFederate", "Ping Identity"],
+    "note": "Additional notes go here. Should reference something in the external repository",
+    "platform": "linux",
+    "repository": {
+      "url": "https://github.com/jstinnett23/pingfederate-helloworld-channel",
+      "stackfile": "docker-compose.yaml"
+    },
+    "env": [
+      {
+        "name": "SERVER_PROFILE_URL",
+        "label": "Specify your own PingFederate server profile",
+        "description": "A previously saved PingFederate configuration can be saved to GitHub and referenced here",
+        "default": "https://github.com/pingidentity/pingidentity-server-profiles.git"
+      },
+      {
+        "name": "SERVER_PROFILE_PATH",
+        "label": "Specify your own PingFederate server profile path",
+        "description": "This is the location in the repo where your profile is stored",
+        "default": "getting-started/pingfederate"
+      }
+    ]
+  }
+  
+>>>>>>> 1a6a7aa155b30d4df13b1cd67202b3901d037576
 ]
